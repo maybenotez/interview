@@ -39,6 +39,7 @@ public class SocketServer {
             while (iterator.hasNext()){
                 SelectionKey next = iterator.next();
                 if ((next.readyOps() & SelectionKey.OP_ACCEPT) == SelectionKey.OP_ACCEPT){
+                    System.out.println("cli");
                     ServerSocketChannel channel = (ServerSocketChannel) next.channel();
                     SocketChannel accept = channel.accept();
                     accept.configureBlocking(false);
@@ -47,6 +48,7 @@ public class SocketServer {
                 }
                 else if ((next.readyOps() & SelectionKey.OP_READ) == SelectionKey.OP_READ){
                    SocketChannel channel = (SocketChannel) next.channel();
+                    System.out.println("read begain");
                     while (true){
                         allocate.clear();
                         int read = channel.read(allocate);
