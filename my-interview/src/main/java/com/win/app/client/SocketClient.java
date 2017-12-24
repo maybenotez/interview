@@ -5,6 +5,6 @@ package com.win.app.client;
  */
 public class SocketClient  {
     public static void main(String[] args) {
-
+            
     }
 }
