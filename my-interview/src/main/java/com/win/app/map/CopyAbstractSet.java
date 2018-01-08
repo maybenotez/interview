@@ -1,5 +1,5 @@
 
-package com.suning.app.map;
+package com.win.app.map;
 
 import java.util.*;
 
