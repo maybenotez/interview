@@ -1,16 +1,18 @@
 package com.win.app.map;
 
+import java.util.*;
+
 /**
  * Created by Administrator on 2017/12/22 0022.
  */
-public class CopyAbstrackMap {
+public abstract class CopyAbstractMap<K,V> implements Map<K,V>{
     protected CopyAbstractMap(){
 
     }
 
-    public abstract Set<Entry<K,V>> entrySet();
+    public abstract Set<Map.Entry<K,V>> entrySet();
 
-    public static  class SimpleEntry<K,V> implements Entry<K,V>,java.io.Serializable{
+    public static  class SimpleEntry<K,V> implements Map.Entry<K,V>,java.io.Serializable{
 
         private static final long serialVersionUID = -6600744545348714387L;
         private final K key;
@@ -20,7 +22,7 @@ public class CopyAbstrackMap {
             this.key = key;
             this.value = value;
         }
-        public SimpleEntry(Entry<? extends  K,? extends V> entry){
+        public SimpleEntry(Map.Entry<? extends  K,? extends V> entry){
             this.key = entry.getKey();
             this.value = entry.getValue();
         }
@@ -47,7 +49,7 @@ public class CopyAbstrackMap {
             if (!(obj instanceof Map.Entry)){
                 return false;
             }
-            Map.Entry<?,?>  e = (Entry<?, ?>) obj;
+            Map.Entry<?,?>  e = (Map.Entry<?, ?>) obj;
 
             return eq(key,e.getKey()) && eq(value,e.getValue());
         }
@@ -60,7 +62,7 @@ public class CopyAbstrackMap {
             return key+"="+value;
         }
     }
-    public static class SimpleImmutableEntry<K,V> implements Entry<K,V>,java.io.Serializable{
+    public static class SimpleImmutableEntry<K,V> implements Map.Entry<K,V>,java.io.Serializable{
 
         private static final long serialVersionUID = -2984985958916137502L;
 
@@ -72,7 +74,7 @@ public class CopyAbstrackMap {
             this.value = value;
         }
 
-        public SimpleImmutableEntry(Entry<? extends K,? extends V> entry) {
+        public SimpleImmutableEntry(Map.Entry<? extends K,? extends V> entry) {
             this.key    = entry.getKey();
             this.value = entry.getValue();
         }
@@ -102,7 +104,7 @@ public class CopyAbstrackMap {
             if (!(obj instanceof Map.Entry)){
                 return false;
             }
-            Map.Entry<?,?> e = (Entry<?, ?>) obj;
+            Map.Entry<?,?> e = (Map.Entry<?, ?>) obj;
             return eq(key,e.getKey()) && eq(value,e.getValue());
         }
 
@@ -123,10 +125,10 @@ public class CopyAbstrackMap {
 
     @Override
     public boolean containsKey(Object key) {
-        Iterator<Entry<K, V>> i     = entrySet().iterator();
+        Iterator<Map.Entry<K, V>> i     = entrySet().iterator();
         if (key == null){
             while (i.hasNext()){
-                Entry<K, V> next = i.next();
+                Map.Entry<K, V> next = i.next();
                 if (next.getKey() == null){
                     return true;
                 }
@@ -134,7 +136,7 @@ public class CopyAbstrackMap {
         }
         else {
             while (i.hasNext()){
-                Entry<K, V> next = i.next();
+                Map.Entry<K, V> next = i.next();
                 if (key.equals(next.getKey())){
                     return true;
                 }
@@ -146,10 +148,10 @@ public class CopyAbstrackMap {
     @Override
     public boolean containsValue(Object value)
     {
-        Iterator<Entry<K, V>> i = entrySet().iterator();
+        Iterator<Map.Entry<K, V>> i = entrySet().iterator();
         if (value == null){
             while (i.hasNext()){
-                Entry<K, V> e = i.next();
+                Map.Entry<K, V> e = i.next();
                 if (e.getValue() == null ){
                     return true;
                 }
@@ -157,7 +159,7 @@ public class CopyAbstrackMap {
         }
         else{
             while (i.hasNext()){
-                Entry<K, V> next = i.next();
+                Map.Entry<K, V> next = i.next();
                 if (value.equals(next.getValue())){
                     return true;
                 }
@@ -169,10 +171,10 @@ public class CopyAbstrackMap {
     @Override
     public V get(Object key)
     {
-        Iterator<Entry<K, V>> iterator = entrySet().iterator();
+        Iterator<Map.Entry<K, V>> iterator = entrySet().iterator();
         if (key == null){
             while (iterator.hasNext()){
-                Entry<K, V> next = iterator.next();
+                Map.Entry<K, V> next = iterator.next();
                 if (next.getKey() == null){
                     return next.getValue();
                 }
@@ -180,7 +182,7 @@ public class CopyAbstrackMap {
         }
         else{
             while (iterator.hasNext()){
-                Entry<K, V> next = iterator.next();
+                Map.Entry<K, V> next = iterator.next();
                 if (key.equals(next.getKey())){
                     return next.getValue();
                 }
