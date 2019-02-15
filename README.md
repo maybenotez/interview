@@ -18,6 +18,7 @@
 ### 6. netty
   #### netty + hessian 
   #### reactor模型
+  [netty相关学习资料](https://www.jianshu.com/u/4fdc8c2315e8)
 
 ### 7. mybatis
    [mybatis深入研究地址](https://blog.csdn.net/u010349169/column/info/mybatis-principle)
