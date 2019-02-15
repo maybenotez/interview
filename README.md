@@ -22,7 +22,11 @@
 ### 7. mybatis
    [mybatis深入研究地址](https://blog.csdn.net/u010349169/column/info/mybatis-principle)
    
-   
+   mybatis相关知识点：
+      配置初始化
+      数据库连接池
+      事务管理
+      
    
    
    
