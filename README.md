@@ -1,8 +1,8 @@
 
 ###  1.  java 基础
- #### String
+ #### [String](#string)
  #### 对象引用类型
-
+  
 ### 2.java 并发知识
    #### juc   锁 synchronize关键字   
 
@@ -21,3 +21,19 @@
 
 ### 7. mybatis
    [mybatis深入研究地址](https://blog.csdn.net/u010349169/column/info/mybatis-principle)
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+     <span id="string">string相关知识</span>
